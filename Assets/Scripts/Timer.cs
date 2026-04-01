@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
-
     public float elapsedTime = 0;
     public TextMeshProUGUI timeText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -23,8 +22,10 @@ public class Timer : MonoBehaviour
 			// update the timeText message, converting float to int
 			timeText.text = "Time: " + elapsedTime;
             //stops the game if the time reaches a certain point//
-           
-
+           if (elapsedTime >= 100)
+            {
+                SceneManager.LoadScene("GameOver");
+            }
 
     }
 }
