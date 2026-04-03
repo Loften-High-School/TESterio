@@ -26,6 +26,10 @@ public bool right = false;
         {
             rb.AddForce(Vector2.up * 17.5f, ForceMode2D.Impulse);
         }
+          if(Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.AddForce(Vector2.up * 17.5f, ForceMode2D.Impulse);
+        }
          if(Input.GetKeyDown(KeyCode.S))
         {
             rb.AddForce(Vector2.down * 17.5f, ForceMode2D.Impulse);
@@ -44,7 +48,7 @@ public bool right = false;
             left = false;
             right = true;
         }
-         if(Input.GetKeyDown(KeyCode.Q) && left == true && right == false)
+/*         if(Input.GetKeyDown(KeyCode.Q) && left == true && right == false)
         {
             rb.AddForce(Vector2.left * 17.5f);
         }
@@ -52,6 +56,6 @@ public bool right = false;
         {
             rb.AddForce(Vector2.right * 17.5f);
         }
-    }
+*/    }
 
 }
