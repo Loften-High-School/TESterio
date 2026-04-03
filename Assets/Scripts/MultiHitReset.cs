@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement; // Required for scene management
 
 public class MultiHitReset : MonoBehaviour
 {
+    public int Playerhealth = 1;
     public int maxHits = 2; // The number of hits before reset
     private int currentHits = 0; // Tracks the current number of hits
 
@@ -37,14 +38,8 @@ public class MultiHitReset : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
         // 2. Reset position to a starting point:
-        // transform.position = new Vector3(0, 0, 0); // Example reset position
+         transform.position = new Vector3(0, 0, 0); // Example reset position
 
-        // 3. Reset other player-specific states (e.g., health, power-ups):
-        // PlayerHealth playerHealth = GetComponent<PlayerHealth>();
-        // if (playerHealth != null)
-        // {
-        //     playerHealth.ResetHealth();
-        // }
 
         currentHits = 0; // Reset the hit counter
     }
