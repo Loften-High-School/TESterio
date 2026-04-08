@@ -6,6 +6,7 @@ public class Playermovement : MonoBehaviour
 public Rigidbody2D rb;
 public bool left = false;
 public bool right = false;
+public int jumps = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
