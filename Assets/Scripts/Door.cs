@@ -13,8 +13,8 @@ void OnCollisionEnter2D(Collision2D other)
             if (gameObject.tag == ("Player"))
             {
 
-                    SceneManager.LoadScene("Level2");
                     SceneManager.LoadScene(nextSceneName, LoadSceneMode.Single);
+                Debug.Log("Level comeplete!");
             
 
             }
