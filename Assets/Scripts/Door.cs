@@ -6,15 +6,15 @@ public class Door : MonoBehaviour
 
 public string nextSceneName;
 
-void OnCollisionEnter2D(Collision2D other)
+void OnTriggerEnter2D(Collider2D other)
     {
 
             // Check if the object this script is attached to has the "Player" tag
-            if (gameObject.tag == ("Player"))
+            if (gameObject.tag == ("Door"))
             {
 
                     SceneManager.LoadScene(nextSceneName, LoadSceneMode.Single);
-                Debug.Log("Level comeplete!");
+                    Debug.Log("Level comeplete!");
             
 
             }

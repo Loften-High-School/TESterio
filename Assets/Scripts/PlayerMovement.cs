@@ -1,8 +1,9 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerStuff : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
+    public string Ground;
     private float speed = 8f;
    private bool isWallSliding;
     private bool isFacingRight = true;
