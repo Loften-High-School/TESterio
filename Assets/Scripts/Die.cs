@@ -1,7 +1,8 @@
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Death : MonoBehaviour
+public class Die : MonoBehaviour
 {
 
 public int Playerhealth = 1;
@@ -59,4 +60,3 @@ void OnTriggerEnter2D(Collider2D other)
     }
 
 }
-
