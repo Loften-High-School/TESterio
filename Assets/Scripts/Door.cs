@@ -2,12 +2,13 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Death : MonoBehaviour
+public class Door : MonoBehaviour
 {
 
 public int Playerhealth = 1;
     public int maxHits = 2; // The number of hits before reset
     private int currentHits = 0; // Tracks the current number of hits
+    public string NextScene = "";
 
 void OnCollisionEnter2D(Collision2D other)
     {
@@ -23,7 +24,7 @@ void OnCollisionEnter2D(Collision2D other)
                 // If the current hits reach or exceed the maximum allowed hits
                 if (currentHits >= maxHits)
                 { 
-                    SceneManager.LoadScene("Level2");
+                      SceneManager.LoadScene(SceneManager.GetActiveScene().name);
                 }
 
             }
@@ -49,7 +50,7 @@ void OnTriggerEnter2D(Collider2D other)
                 // If the current hits reach or exceed the maximum allowed hits
                 if (currentHits >= maxHits)
                 { 
-                    SceneManager.LoadScene("Level2");
+                      SceneManager.LoadScene(SceneManager.GetActiveScene().name);
                 }
 
             }
