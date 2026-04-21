@@ -21,18 +21,24 @@ public int jumps = 0;
                 Vector2 moveValue = InputSystem.actions.FindAction("Move").ReadValue<Vector2>(); 
         transform.Translate(moveValue.x * Time.deltaTime * 10.0f, 0, 0);
 
+        if(jumps <= 1)
+        {
         if(Input.GetKeyDown(KeyCode.UpArrow))
         {
             rb.AddForce(Vector2.up * 17.5f, ForceMode2D.Impulse);
+            jumps ++;
         }
          if(Input.GetKeyDown(KeyCode.W))
         {
             rb.AddForce(Vector2.up * 17.5f, ForceMode2D.Impulse);
+            jumps ++;
         }
-          if(Input.GetKeyDown(KeyCode.Space))
+/*          if(Input.GetKeyDown(KeyCode.Space))
         {
             rb.AddForce(Vector2.up * 17.5f, ForceMode2D.Impulse);
+            jumps ++;
         }
+*/      }
          if(Input.GetKeyDown(KeyCode.S))
         {
             rb.AddForce(Vector2.down * 17.5f, ForceMode2D.Impulse);
@@ -59,6 +65,15 @@ public int jumps = 0;
         {
             rb.AddForce(Vector2.right * 17.5f);
         }
-*/    }
+*/
+    }
+
+    void OnCollisionEnter2D(Collision2D otherObject)
+        {
+            if (otherObject.gameObject.CompareTag("Floor"));
+            {
+                jumps = 0;
+            }
+        }
 
 }
