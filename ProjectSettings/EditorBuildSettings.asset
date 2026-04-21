@@ -32,6 +32,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Secret5.unity
     guid: 7e3ebeae9c89d4e6698fd0515046f5f2
+  - enabled: 1
+    path: Assets/Scenes/Controls.unity
+    guid: 66f28a7d8edbf47eeb2ebba1367083e2
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
