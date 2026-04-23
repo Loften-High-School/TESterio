@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     public string Ground;
-    private float speed = 8f;
+    private float speed = 10f;
    private bool isWallSliding;
     private bool isFacingRight = true;
     private float horizontal;

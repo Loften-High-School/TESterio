@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 1a5e5ab204136430ab89823e8544726f
   - enabled: 1
-    path: Assets/Scenes/Level2.unity
+    path: Assets/Scenes/Level5.unity
     guid: b816a8a2f06194325bbea879adbca2cd
   - enabled: 1
     path: Assets/Scenes/Secret1.unity
@@ -35,6 +35,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Controls.unity
     guid: 66f28a7d8edbf47eeb2ebba1367083e2
+  - enabled: 1
+    path: Assets/Scenes/TheEnd.unity
+    guid: e7c75506843724057ae414b0c56db52f
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
