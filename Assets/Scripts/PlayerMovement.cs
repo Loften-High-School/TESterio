@@ -7,6 +7,7 @@ public Rigidbody2D rb;
 public bool left = false;
 public bool right = false;
 public int jumps = 0;
+public int WallJumps =0;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -73,7 +74,24 @@ public int jumps = 0;
             if (otherObject.gameObject.CompareTag("Floor"));
             {
                 jumps = 0;
+                WallJumps =0;
+            }
+            if (otherObject.gameObject.CompareTag("Left Wall"));
+            {
+                if(WallJumps >= 1);
+                {
+                    if(Input.GetKeyDown(KeyCode.W))
+                    {
+                    rb.AddForce(Vector2.right * 17.5f, ForceMode2D.Impulse);
+                    WallJumps ++;
+                    }
+                }
+            }
+             if (otherObject.gameObject.CompareTag("Right Wall"));
+            {
+                
             }
         }
 
+    
 }
