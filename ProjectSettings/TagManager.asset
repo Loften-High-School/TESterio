@@ -8,6 +8,9 @@ TagManager:
   - Door
   - Wall
   - Ground
+  - Paddle1
+  - Paddle2
+  - Pinball
   layers:
   - Default
   - TransparentFX
