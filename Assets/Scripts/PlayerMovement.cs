@@ -3,18 +3,21 @@ using UnityEngine.InputSystem;
 
 public class Playermovement : MonoBehaviour
 {
+private Rigidbody2D rb2d;
 public Rigidbody2D rb;
 public bool left = false;
 public bool right = false;
 public int jumps = 0;
 public int WallJumps =0;
-
+public CameraScript targetScript;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        targetScript = GameObject.Find("camera").GetComponent<CameraScript>();
     }
+
 
     // Update is called once per frame
     void Update()
@@ -69,16 +72,29 @@ public int WallJumps =0;
 */
     }
 
-    void OnCollisionEnter2D(Collision2D otherObject)
+    void OnTriggerEnter2D(Collider2D otherObject)
         {
-            if (otherObject.gameObject.CompareTag("Floor"));
+            if (otherObject.gameObject.CompareTag("Floor"))
             {
-                jumps = 0;
-                WallJumps =0;
+                    jumps = 0;
+                    WallJumps = 0;
             }
-            if (otherObject.gameObject.CompareTag("Left Wall"));
+           if (otherObject.gameObject.CompareTag("Left Wall"))
             {
-                if(WallJumps >= 1);
+
+            }
+             if (otherObject.gameObject.CompareTag("Right Wall"))
+            {
+                
+            }
+        }
+    void OnTriggerExit2D(Collider2D otherObject)
+    {
+  if (otherObject.gameObject.CompareTag("Left Wall"))
+            {
+                WallJumps = 0;
+                jumps = 1;
+                if(WallJumps >= 1)
                 {
                     if(Input.GetKeyDown(KeyCode.W))
                     {
@@ -87,11 +103,15 @@ public int WallJumps =0;
                     }
                 }
             }
-             if (otherObject.gameObject.CompareTag("Right Wall"));
+             if (otherObject.gameObject.CompareTag("Right Wall"))
             {
                 
             }
-        }
-
+            if (otherObject.gameObject.CompareTag("1-1 end marker"))
+            {
+                transform.position = new Vector3(-180.49f, -54.28f, 0f);
+                GetComponent<Camera>().transform.position = new Vector3(-180.49f, -54.28f, 0f);
+            }
+    }
     
 }
