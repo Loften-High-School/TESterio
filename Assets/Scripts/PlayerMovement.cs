@@ -15,7 +15,7 @@ public CameraScript targetScript;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        targetScript = GameObject.Find("camera").GetComponent<CameraScript>();
+       
     }
 
 
@@ -29,11 +29,13 @@ public CameraScript targetScript;
         {
         if(Input.GetKeyDown(KeyCode.UpArrow))
         {
+            rb.linearVelocity = Vector2.zero;
             rb.AddForce(Vector2.up * 17.5f, ForceMode2D.Impulse);
             jumps ++;
         }
          if(Input.GetKeyDown(KeyCode.W))
         {
+            rb.linearVelocity = Vector2.zero;
             rb.AddForce(Vector2.up * 17.5f, ForceMode2D.Impulse);
             jumps ++;
         }
@@ -110,7 +112,17 @@ public CameraScript targetScript;
             if (otherObject.gameObject.CompareTag("1-1 end marker"))
             {
                 transform.position = new Vector3(-180.49f, -54.28f, 0f);
-                GetComponent<Camera>().transform.position = new Vector3(-180.49f, -54.28f, 0f);
+                targetScript.GetComponent<Camera>().transform.position = new Vector3(-172.5f, -43.0f, -10.0f);
+            }
+            if (otherObject.gameObject.CompareTag("1-2 end marker"))
+            {
+                transform.position = new Vector3(-180.49f, -24.28f, 0f);
+                targetScript.GetComponent<Camera>().transform.position = new Vector3(-172.5f, -13.0f, -10.0f);
+            }
+            if (otherObject.gameObject.CompareTag("1-3 end marker"))
+            {
+                transform.position = new Vector3(-180.49f, 10.28f, 0f);
+                targetScript.GetComponent<Camera>().transform.position = new Vector3(-172.5f, 17.0f, -10.0f);
             }
     }
     
