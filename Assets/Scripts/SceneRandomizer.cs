@@ -1,6 +1,7 @@
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class SceneRandomizer : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -16,28 +17,28 @@ public class SceneRandomizer : MonoBehaviour
     {
 
     }
-    void OnCollisionEnter2D(Collision2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (gameObject.tag == ("Player"))
         {
-        randomnumber = Random.Range(0, 4);
-        if (randomnumber == 0)
+        randomnumber = Random.Range(4, 8);
+        if (randomnumber == 4)
         {
             SceneManager.LoadScene("Secret1");
         }
-        if (randomnumber == 1)
+        if (randomnumber == 5)
         {
           SceneManager.LoadScene("Secret2");
         }
-        if (randomnumber == 2)
+        if (randomnumber == 6)
         {
             SceneManager.LoadScene("Secret3");
         }
-        if (randomnumber == 3)
+        if (randomnumber == 7)
         {
             SceneManager.LoadScene("Secret4");
         }
-        if (randomnumber == 4)
+        if (randomnumber == 8)
         {
             SceneManager.LoadScene("Secret5");
         }
