@@ -2,12 +2,11 @@ using UnityEngine;
 using TMPro;
 public class BallScript : MonoBehaviour
 { 
+
+  public float startingSpeed;
+  public Rigidbody2D rb;
   public int randomnumber;
   public float Speed = 1f;
-  public string CheckSpeed;
-  public float randomForceX;
-  public float randomForceY;
-  public int randomDirecion;
   public float SpeedCap = 3;
   private int score;
   public TextMeshProUGUI ScoreText;
@@ -18,12 +17,27 @@ public class BallScript : MonoBehaviour
       ScoreText.text = "Score: 0";
       MessageText.text = "";
 
+      // message text//
+
+      bool isRight = UnityEngine.Random.value >= 0.5;
+      
+      float xVelocity = -1f;
+
+      if (isRight == true)
+      {
+        xVelocity = 1f;
+      }
+
+      float yVelocity = UnityEngine.Random.Range(-1, 1);
+
+      rb.linearVelocity = new Vector2(xVelocity * startingSpeed, yVelocity * startingSpeed);
+     
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+      
     }
 
     // Called when this object collides with another
@@ -32,35 +46,13 @@ public class BallScript : MonoBehaviour
         score++;  // increase the current score
    ScoreText.text = "Score: " + score;  // update the display
     }
-    
-    public void ballForce()
-    {
-       if ( Speed == 0);
-         {
-        randomnumber = Random.Range(0, 4);
-        if (randomnumber == 0)
-        {
-        randomForceX = -6.4f;
-        }
-        if (randomnumber == 1)
-         {
-        randomForceX = 3.5f;
-         }
-        if (randomnumber == 2)
-        {
-        randomForceY = 1f;
-        }
-        if (randomnumber == 3)
-      {
-        randomForceY = -1f;
-      }
-      if (randomnumber == 4)
-      {
-        randomForceX = -3.5f;
-      }
 
-         }
+       void OnTriggerEnter2D(Collider2D GrayTriggerObject)
+    {
+
     }
+    
+
     
 }
 
