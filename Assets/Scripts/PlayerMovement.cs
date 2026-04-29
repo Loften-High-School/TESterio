@@ -9,6 +9,8 @@ public bool left = false;
 public bool right = false;
 public int jumps = 0;
 public int WallJumps =0;
+public int SJumps = 0;
+public bool slamming = false;
 public CameraScript targetScript;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -29,12 +31,14 @@ public CameraScript targetScript;
         {
         if(Input.GetKeyDown(KeyCode.UpArrow))
         {
+            slamming = false;
             rb.linearVelocity = Vector2.zero;
             rb.AddForce(Vector2.up * 17.5f, ForceMode2D.Impulse);
             jumps ++;
         }
          if(Input.GetKeyDown(KeyCode.W))
         {
+            slamming = false;
             rb.linearVelocity = Vector2.zero;
             rb.AddForce(Vector2.up * 17.5f, ForceMode2D.Impulse);
             jumps ++;
@@ -45,13 +49,26 @@ public CameraScript targetScript;
             jumps ++;
         }
 */      }
+        if(SJumps <=0)
+        {
+             if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+             {
+                rb.linearVelocity = Vector2.zero;
+                slamming = false;
+                rb.AddForce(Vector2.up * 30.0f, ForceMode2D.Impulse);
+                jumps = 1;
+                SJumps = 1;
+             }
+        }
          if(Input.GetKeyDown(KeyCode.S))
         {
-            rb.AddForce(Vector2.down * 17.5f, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.down * 30.0f, ForceMode2D.Impulse);
+            slamming = true;
         }
          if(Input.GetKeyDown(KeyCode.DownArrow))
         {
-            rb.AddForce(Vector2.down * 17.5f, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.down * 40.0f, ForceMode2D.Impulse);
+            slamming = true;
         }
         if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
@@ -80,6 +97,17 @@ public CameraScript targetScript;
             {
                     jumps = 0;
                     WallJumps = 0;
+                    SJumps = 1;
+                    slamming = false;
+            }
+            if (otherObject.gameObject.CompareTag("ground slam window"))
+            {
+                if(slamming == true)
+                {
+                    jumps = 2;
+                    WallJumps = 0;
+                    SJumps = 0;
+                }
             }
            if (otherObject.gameObject.CompareTag("Left Wall"))
             {
@@ -107,7 +135,7 @@ public CameraScript targetScript;
             }
              if (otherObject.gameObject.CompareTag("Right Wall"))
             {
-                
+                jumps = 1;
             }
             if (otherObject.gameObject.CompareTag("1-1 end marker"))
             {
