@@ -13,7 +13,7 @@ public class spikescript : MonoBehaviour
     {
         
     }
-    void onTriggerEnter2d()
+    void OnTriggerEnter2D(Collider2D otherObject)
     {
         if(otherObject.gameObject.CompareTag("spikes lvl 1"))
         {
