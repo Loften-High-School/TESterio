@@ -3927,6 +3927,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hexagon Point Top
       objectReference: {fileID: 0}
+    - target: {fileID: 5224276841006242313, guid: 9158fef1aaabc4bcdb30f1ca834c9afd, type: 3}
+      propertyPath: NextScene
+      value: Level5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
