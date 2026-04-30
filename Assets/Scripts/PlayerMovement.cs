@@ -161,13 +161,13 @@ public CameraScript targetScript;
             }
             if (otherObject.gameObject.CompareTag("1-5 end marker"))
             {
-                transform.position = new Vector3(-180.49f, 40.28f, 0f);
-                targetScript.GetComponent<Camera>().transform.position = new Vector3(-172.5f, 47.0f, -10.0f);
+                transform.position = new Vector3(-180.49f, 70.28f, 0f);
+                targetScript.GetComponent<Camera>().transform.position = new Vector3(-172.5f, 77.0f, -10.0f);
             }
             if (otherObject.gameObject.CompareTag("1-6 end marker"))
             {
-                transform.position = new Vector3(-180.49f, 40.28f, 0f);
-                targetScript.GetComponent<Camera>().transform.position = new Vector3(-172.5f, 47.0f, -10.0f);
+                transform.position = new Vector3(-180.49f, 70.28f, 0f);
+                targetScript.GetComponent<Camera>().transform.position = new Vector3(-172.5f, 77.0f, -10.0f);
             }
     }
     
