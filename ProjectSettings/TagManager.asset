@@ -11,6 +11,11 @@ TagManager:
   - 1-2 end marker
   - 1-3 end marker
   - ground slam window
+  - 1-4 end marker
+  - 1-5 end marker
+  - 1-6 end marker
+  - landmine
+  - landmine trigger
   layers:
   - Default
   - TransparentFX
@@ -45,6 +50,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: behind collision stuff
+    uniqueID: 744413509
+    locked: 0
   - name: Floor Collision
     uniqueID: 2000685125
     locked: 0

@@ -62,11 +62,13 @@ public CameraScript targetScript;
         }
          if(Input.GetKeyDown(KeyCode.S))
         {
+            rb.linearVelocity = Vector2.zero;
             rb.AddForce(Vector2.down * 30.0f, ForceMode2D.Impulse);
             slamming = true;
         }
          if(Input.GetKeyDown(KeyCode.DownArrow))
         {
+            rb.linearVelocity = Vector2.zero;
             rb.AddForce(Vector2.down * 40.0f, ForceMode2D.Impulse);
             slamming = true;
         }
@@ -151,6 +153,21 @@ public CameraScript targetScript;
             {
                 transform.position = new Vector3(-180.49f, 10.28f, 0f);
                 targetScript.GetComponent<Camera>().transform.position = new Vector3(-172.5f, 17.0f, -10.0f);
+            }
+            if (otherObject.gameObject.CompareTag("1-4 end marker"))
+            {
+                transform.position = new Vector3(-180.49f, 40.28f, 0f);
+                targetScript.GetComponent<Camera>().transform.position = new Vector3(-172.5f, 47.0f, -10.0f);
+            }
+            if (otherObject.gameObject.CompareTag("1-5 end marker"))
+            {
+                transform.position = new Vector3(-180.49f, 40.28f, 0f);
+                targetScript.GetComponent<Camera>().transform.position = new Vector3(-172.5f, 47.0f, -10.0f);
+            }
+            if (otherObject.gameObject.CompareTag("1-6 end marker"))
+            {
+                transform.position = new Vector3(-180.49f, 40.28f, 0f);
+                targetScript.GetComponent<Camera>().transform.position = new Vector3(-172.5f, 47.0f, -10.0f);
             }
     }
     
