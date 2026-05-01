@@ -33,14 +33,14 @@ public CameraScript targetScript;
         {
             slamming = false;
             rb.linearVelocity = Vector2.zero;
-            rb.AddForce(Vector2.up * 17.5f, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.up * 20.0f, ForceMode2D.Impulse);
             jumps ++;
         }
          if(Input.GetKeyDown(KeyCode.W))
         {
             slamming = false;
             rb.linearVelocity = Vector2.zero;
-            rb.AddForce(Vector2.up * 17.5f, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.up * 20.0f, ForceMode2D.Impulse);
             jumps ++;
         }
 /*          if(Input.GetKeyDown(KeyCode.Space))
