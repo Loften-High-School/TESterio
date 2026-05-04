@@ -27,6 +27,7 @@ public CameraScript targetScript;
                 Vector2 moveValue = InputSystem.actions.FindAction("Move").ReadValue<Vector2>(); 
         transform.Translate(moveValue.x * Time.deltaTime * 10.0f, 0, 0);
 
+
         if(jumps <= 1)
         {
         if(Input.GetKeyDown(KeyCode.UpArrow))
@@ -118,6 +119,21 @@ public CameraScript targetScript;
              if (otherObject.gameObject.CompareTag("Right Wall"))
             {
                 
+            }
+            if (otherObject.gameObject.CompareTag("landmine trigger"))
+            {
+                if(slamming == false)
+                {
+                transform.position = new Vector3(-180.49f, -24.28f, 0f);
+                targetScript.GetComponent<Camera>().transform.position = new Vector3(-172.5f, -13.0f, -10.0f);
+                }
+                if(slamming == true)
+                {
+                rb.linearVelocity = Vector2.zero;
+                rb.AddForce(Vector2.up * 40.0f, ForceMode2D.Impulse);
+                slamming = false;
+
+                }
             }
         }
     void OnTriggerExit2D(Collider2D otherObject)
