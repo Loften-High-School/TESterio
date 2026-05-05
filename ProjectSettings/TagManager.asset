@@ -16,6 +16,9 @@ TagManager:
   - 1-6 end marker
   - landmine
   - landmine trigger
+  - TT1
+  - Red Explosion Wave
+  - Yellow Explosion Wave
   layers:
   - Default
   - TransparentFX

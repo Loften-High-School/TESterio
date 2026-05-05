@@ -1,10 +1,8 @@
 using UnityEngine;
 
-public class CameraScript : MonoBehaviour
-
+public class ExplosionWaveScript : MonoBehaviour
 {
-    public GameObject camera;
-        public GameObject tutorialText;
+    public Playermovement targetScript;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -14,6 +12,6 @@ public class CameraScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+//        targetScript.GetValue<Landmined>();
     }
 }

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class Playermovement : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public int WallJumps =0;
 public int SJumps = 0;
 public bool slamming = false;
 public CameraScript targetScript;
-
+public bool Landmined = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -124,8 +125,15 @@ public CameraScript targetScript;
             {
                 if(slamming == false)
                 {
-                transform.position = new Vector3(-180.49f, -24.28f, 0f);
+                transform.position = new Vector3(-1800.49f, -24.28f, 0f);
                 targetScript.GetComponent<Camera>().transform.position = new Vector3(-172.5f, -13.0f, -10.0f);
+                StartCoroutine(ExecuteAfterTime(2.0f));
+                IEnumerator ExecuteAfterTime(float time) 
+                {
+                yield return new WaitForSeconds(time);
+                    Debug.Log("The timer ran out");
+                    transform.position = new Vector3(-180.49f, -24.28f, 0f);
+                }
                 }
                 if(slamming == true)
                 {
@@ -159,6 +167,7 @@ public CameraScript targetScript;
             {
                 transform.position = new Vector3(-180.49f, -54.28f, 0f);
                 targetScript.GetComponent<Camera>().transform.position = new Vector3(-172.5f, -43.0f, -10.0f);
+//                    targetScript.GetComponent<tutorialText>().transform.position = new Vector3(-9f, -350f, 0f);
             }
             if (otherObject.gameObject.CompareTag("1-2 end marker"))
             {
