@@ -19,6 +19,7 @@ TagManager:
   - TT1
   - Red Explosion Wave
   - Yellow Explosion Wave
+  - Explosion
   layers:
   - Default
   - TransparentFX
@@ -67,6 +68,9 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: above everything(not UI)
+    uniqueID: 1182450521
     locked: 0
   m_RenderingLayers:
   - Default

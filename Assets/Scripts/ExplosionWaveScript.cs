@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class ExplosionWaveScript : MonoBehaviour
 {
-    public Playermovement targetScript;
+    private PlayerMovement playerMovement;
+    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -12,6 +14,9 @@ public class ExplosionWaveScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-//        targetScript.GetValue<Landmined>();
+       if (playerMovement.Landmined == true) 
+       {
+        
+       }
     }
 }
