@@ -28,6 +28,8 @@ TagManager:
   - Water
   - UI
   - floor
+  - walls
+  - Landmine
   - 
   - 
   - 
@@ -44,9 +46,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
+  - UI
   - 
   - 
   - 
