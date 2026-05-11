@@ -60,6 +60,9 @@ TagManager:
   - name: Floor Collision
     uniqueID: 2000685125
     locked: 0
+  - name: piston
+    uniqueID: 2785151253
+    locked: 0
   - name: Right Wall Collision
     uniqueID: 701318107
     locked: 0
