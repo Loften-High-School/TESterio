@@ -20,6 +20,9 @@ TagManager:
   - Red Explosion Wave
   - Yellow Explosion Wave
   - Explosion
+  - Glass
+  - Glass hitbox
+  - Glass bottom hitbox
   layers:
   - Default
   - TransparentFX
@@ -62,6 +65,9 @@ TagManager:
     locked: 0
   - name: piston
     uniqueID: 2785151253
+    locked: 0
+  - name: glass
+    uniqueID: 448126727
     locked: 0
   - name: Right Wall Collision
     uniqueID: 701318107

@@ -14,6 +14,7 @@ public int SJumps = 0;
 public bool slamming = false;
 public CameraScript targetScript;
 public bool Landmined = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -57,6 +58,7 @@ public bool Landmined = false;
              {
                 rb.linearVelocity = Vector2.zero;
                 slamming = false;
+                Landmined = false;
                 rb.AddForce(Vector2.up * 30.0f, ForceMode2D.Impulse);
                 jumps = 1;
                 SJumps = 1;
@@ -67,12 +69,14 @@ public bool Landmined = false;
             rb.linearVelocity = Vector2.zero;
             rb.AddForce(Vector2.down * 30.0f, ForceMode2D.Impulse);
             slamming = true;
+            Landmined = false;
         }
          if(Input.GetKeyDown(KeyCode.DownArrow))
         {
             rb.linearVelocity = Vector2.zero;
             rb.AddForce(Vector2.down * 40.0f, ForceMode2D.Impulse);
             slamming = true;
+            Landmined = false;
         }
         if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
@@ -124,7 +128,8 @@ public bool Landmined = false;
             if (otherObject.gameObject.CompareTag("landmine trigger"))
             {
                 if(slamming == false)
-                {
+                {  
+                Landmined = true;
                 transform.position = new Vector3(-1800.49f, -24.28f, 0f);
                 targetScript.GetComponent<Camera>().transform.position = new Vector3(-172.5f, -13.0f, -10.0f);
                 StartCoroutine(ExecuteAfterTime(2.0f));
@@ -140,7 +145,20 @@ public bool Landmined = false;
                 rb.linearVelocity = Vector2.zero;
                 rb.AddForce(Vector2.up * 40.0f, ForceMode2D.Impulse);
                 slamming = false;
-
+                Landmined = true;
+                }
+            }
+            if (otherObject.gameObject.CompareTag("Glass hitbox"))
+            {
+                if(slamming == false)
+                {
+                    jumps = 0;
+                    WallJumps = 0;
+                    Landmined = false;
+                }
+                if(slamming == true)
+                {
+                    Landmined = false;
                 }
             }
         }
