@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 3
   tags:
   - spikes lvl 1
+  - Floor
+  - level 1 end
+  - spikes lvl 2
   layers:
   - Default
   - TransparentFX
