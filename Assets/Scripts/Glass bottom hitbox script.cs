@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GlassTopHitboxScript : MonoBehaviour
+public class Glassbottomhitboxscript : MonoBehaviour
 {
     [SerializeField] GameObject Glass;
     public PlayerMovement playerMovement;
@@ -15,10 +15,10 @@ public class GlassTopHitboxScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player")) 
         {
-            if (playerMovement.slamming == true)
+            if (playerMovement.Landmined == true)
             {
                 Debug.Log("Glass shattered");
-                Glass.transform.position = new Vector3(-1790.8359f, 6.79312f, 0.0f);
+                Glass.transform.position = new Vector3(-1790.8359f, 14.41f, 0.0f);
             }
         }
     }

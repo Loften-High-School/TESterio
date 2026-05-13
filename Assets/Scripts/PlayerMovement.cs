@@ -14,6 +14,9 @@ public int SJumps = 0;
 public bool slamming = false;
 public CameraScript targetScript;
 public bool Landmined = false;
+public GameObject Glass1;
+public GameObject Glass2;
+public GameObject Glass3;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -138,6 +141,32 @@ public bool Landmined = false;
                 yield return new WaitForSeconds(time);
                     Debug.Log("The timer ran out");
                     transform.position = new Vector3(-180.49f, -24.28f, 0f);
+                }
+                }
+                if(slamming == true)
+                {
+                rb.linearVelocity = Vector2.zero;
+                rb.AddForce(Vector2.up * 40.0f, ForceMode2D.Impulse);
+                slamming = false;
+                Landmined = true;
+                }
+            }
+            if (otherObject.gameObject.CompareTag("landmine trigger 1-4"))
+            {
+                if(slamming == false)
+                {  
+                Landmined = true;
+                transform.position = new Vector3(-1800.49f, 10.28f, 0f);
+                targetScript.GetComponent<Camera>().transform.position = new Vector3(-172.5f, 17.0f, -10.0f);
+                StartCoroutine(ExecuteAfterTime(2.0f));
+                IEnumerator ExecuteAfterTime(float time) 
+                {
+                yield return new WaitForSeconds(time);
+                    Debug.Log("The timer ran out");
+                    transform.position = new Vector3(-180.49f, 10.28f, 0f);
+                    Glass1.transform.position = new Vector3(-179.8359f, 6.79312f, 0.0f); //moves glass1 back on screen when respawning
+                    Glass2.transform.position = new Vector3(-179.8359f, 14.41f, 0.0f);  //moves glass2 back on screen when respawning
+
                 }
                 }
                 if(slamming == true)
