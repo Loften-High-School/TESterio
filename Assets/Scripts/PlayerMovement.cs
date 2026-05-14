@@ -17,6 +17,7 @@ public bool Landmined = false;
 public GameObject Glass1;
 public GameObject Glass2;
 public GameObject Glass3;
+public bool pistoned = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -59,7 +60,9 @@ public GameObject Glass3;
         {
              if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
              {
+                rb.linearVelocity = new Vector3(0, 0, 0);
                 rb.linearVelocity = Vector2.zero;
+                pistoned = false;
                 slamming = false;
                 Landmined = false;
                 rb.AddForce(Vector2.up * 30.0f, ForceMode2D.Impulse);
@@ -73,6 +76,7 @@ public GameObject Glass3;
             rb.AddForce(Vector2.down * 30.0f, ForceMode2D.Impulse);
             slamming = true;
             Landmined = false;
+            pistoned = false;
         }
          if(Input.GetKeyDown(KeyCode.DownArrow))
         {
@@ -80,11 +84,13 @@ public GameObject Glass3;
             rb.AddForce(Vector2.down * 40.0f, ForceMode2D.Impulse);
             slamming = true;
             Landmined = false;
+            pistoned = false;
         }
         if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             left = true;
             right = false;
+            pistoned = false;
         }
         if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
@@ -110,9 +116,11 @@ public GameObject Glass3;
                     WallJumps = 0;
                     SJumps = 1;
                     slamming = false;
+                    pistoned = false;
             }
             if (otherObject.gameObject.CompareTag("ground slam window"))
             {
+                pistoned = false;
                 if(slamming == true)
                 {
                     jumps = 2;
@@ -130,6 +138,7 @@ public GameObject Glass3;
             }
             if (otherObject.gameObject.CompareTag("landmine trigger"))
             {
+                pistoned = false;
                 if(slamming == false)
                 {  
                 Landmined = true;
@@ -153,6 +162,7 @@ public GameObject Glass3;
             }
             if (otherObject.gameObject.CompareTag("landmine trigger 1-4"))
             {
+                pistoned = false;
                 if(slamming == false)
                 {  
                 Landmined = true;
@@ -172,7 +182,7 @@ public GameObject Glass3;
                 if(slamming == true)
                 {
                 rb.linearVelocity = Vector2.zero;
-                rb.AddForce(Vector2.up * 40.0f, ForceMode2D.Impulse);
+                rb.AddForce(Vector2.up * 45.0f, ForceMode2D.Impulse);
                 slamming = false;
                 Landmined = true;
                 }
@@ -190,11 +200,19 @@ public GameObject Glass3;
                     Landmined = false;
                 }
             }
+            if(otherObject.gameObject.CompareTag("Piston Trigger"))
+            {
+                Debug.Log("Get Piston-ed nerd");
+                rb.linearVelocity = Vector2.zero;
+                rb.AddForce(Vector2.right * 25.0f, ForceMode2D.Impulse);
+                pistoned = true;
+            }
         }
     void OnTriggerExit2D(Collider2D otherObject)
     {
   if (otherObject.gameObject.CompareTag("Left Wall"))
             {
+                pistoned = false;
                 WallJumps = 0;
                 jumps = 1;
                 if(WallJumps >= 1)
@@ -208,6 +226,7 @@ public GameObject Glass3;
             }
              if (otherObject.gameObject.CompareTag("Right Wall"))
             {
+                pistoned = false;
                 jumps = 1;
             }
             if (otherObject.gameObject.CompareTag("1-1 end marker"))
