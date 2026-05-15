@@ -25,6 +25,7 @@ TagManager:
   - Glass bottom hitbox
   - landmine trigger 1-4
   - Piston Trigger
+  - Piston Laser
   layers:
   - Default
   - TransparentFX

@@ -24804,12 +24804,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pistonscript
   rb: {fileID: 1353328144}
-  laser1: {fileID: 1582984600}
-  laser2: {fileID: 1277589973}
-  laser3: {fileID: 1942664266}
-  laser4: {fileID: 1407346364}
-  laser5: {fileID: 200487850}
-  laser6: {fileID: 1045438582}
 --- !u!50 &1353328144
 Rigidbody2D:
   serializedVersion: 5

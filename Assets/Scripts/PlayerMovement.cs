@@ -60,7 +60,6 @@ public bool pistoned = false;
         {
              if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
              {
-                rb.linearVelocity = new Vector3(0, 0, 0);
                 rb.linearVelocity = Vector2.zero;
                 pistoned = false;
                 slamming = false;
