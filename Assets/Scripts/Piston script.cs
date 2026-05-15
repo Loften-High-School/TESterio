@@ -20,26 +20,32 @@ public class Pistonscript : MonoBehaviour
     {
         if(otherObject.gameObject.CompareTag("Player"))
         {
-            laser1.transform.position = new Vector3(-110.96831f, 16.11741f, 0f);
-            laser2.transform.position = new Vector3(-111.26131f, 16.11741f, 0f);
-            laser3.transform.position = new Vector3(-111.5872f, 16.11741f, 0f);
-            laser4.transform.position = new Vector3(-112.0316f, 16.11741f, 0f);
-            laser5.transform.position = new Vector3(-112.5023f, 16.11741f, 0f);
-            laser6.transform.position = new Vector3(-112.70309f, 16.11741f, 0f);
-            StartCoroutine(ExecuteAfterTime(5.0f));
+            rb.AddForce(Vector2.right * 1500.0f, ForceMode2D.Impulse);
+            StartCoroutine(ExecuteAfterTime(0.5f));
                 IEnumerator ExecuteAfterTime(float time) 
                 {
                 yield return new WaitForSeconds(time);
+                rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+                rb.linearVelocity = new Vector2(-150, rb.linearVelocity.y);
+                laser1.transform.position -= new Vector3(110.96831f, 16.11741f, 0f);
+                laser2.transform.position -= new Vector3(111.26131f, 16.11741f, 0f);
+                laser3.transform.position -= new Vector3(111.5872f, 16.11741f, 0f);
+                laser4.transform.position -= new Vector3(112.0316f, 16.11741f, 0f);
+                laser5.transform.position -= new Vector3(112.5023f, 16.11741f, 0f);
+                laser6.transform.position -= new Vector3(112.70309f, 16.11741f, 0f);
+                StartCoroutine(ExecuteAfterTime(5.0f));
+                IEnumerator ExecuteAfterTime(float time) 
+                    {
+                yield return new WaitForSeconds(time);
                     Debug.Log("The timer ran out");
-            laser1.transform.position = new Vector3(-10.96831f, 16.11741f, 0f);
-            laser2.transform.position = new Vector3(-11.26131f, 16.11741f, 0f);
-            laser3.transform.position = new Vector3(-11.5872f, 16.11741f, 0f);
-            laser4.transform.position = new Vector3(-12.0316f, 16.11741f, 0f);
-            laser5.transform.position = new Vector3(-12.5023f, 16.11741f, 0f);
-            laser6.transform.position = new Vector3(-12.70309f, 16.11741f, 0f);
-                }
-
-            rb.AddForce(Vector2.right * 1500.0f, ForceMode2D.Impulse);
+                laser1.transform.position += new Vector3(110.96831f, 16.11741f, 0f);
+                laser2.transform.position += new Vector3(111.26131f, 16.11741f, 0f);
+                laser3.transform.position += new Vector3(111.5872f, 16.11741f, 0f);
+                laser4.transform.position += new Vector3(112.0316f, 16.11741f, 0f);
+                laser5.transform.position += new Vector3(112.5023f, 16.11741f, 0f);
+                laser6.transform.position += new Vector3(112.70309f, 16.11741f, 0f);
+                    }
+                }    
         }
     }
     // Update is called once per frame
