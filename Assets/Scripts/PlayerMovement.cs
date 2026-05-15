@@ -18,6 +18,16 @@ public GameObject Glass1;
 public GameObject Glass2;
 public GameObject Glass3;
 public bool pistoned = false;
+/*
+
+
+PLEASE USE THE NEW INPUT SYSTEM FOR MOVEMENT,
+THE CODE IS IN PLACE BUT COMMENTED OUT, 
+IF YOU HAVE ANY QUESTIONS PLEASE ASK ME
+-BAEZ
+
+*/
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
