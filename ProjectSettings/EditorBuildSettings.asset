@@ -41,6 +41,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Pinbal/Pinball.unity
     guid: 507d972655823401dafdfe995d966c1f
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: 6df7ff9ed635e4079b4e6f292aa6011a
+  - enabled: 1
+    path: Assets/Scenes/Level3.unity
+    guid: 7a8d8dab2a41c4472a79a5ec256e2475
+  - enabled: 1
+    path: Assets/Scenes/Level4.unity
+    guid: 2ce2aafe9bf5e43f58aa2d6d22b4f1dd
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
