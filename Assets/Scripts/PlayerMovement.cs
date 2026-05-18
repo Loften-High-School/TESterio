@@ -17,6 +17,7 @@ public bool Landmined = false;
 public GameObject Glass1;
 public GameObject Glass2;
 public GameObject Glass3;
+public GameObject Glass4;
 public bool pistoned = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -186,6 +187,31 @@ public bool pistoned = false;
                 Landmined = true;
                 }
             }
+            if (otherObject.gameObject.CompareTag("landmine trigger 1-5"))
+            {
+                pistoned = false;
+                if(slamming == false)
+                {  
+                Landmined = true;
+                transform.position = new Vector3(-1800.49f, 10.28f, 0f);
+                targetScript.GetComponent<Camera>().transform.position = new Vector3(-172.5f, 47.0f, -10.0f);
+                StartCoroutine(ExecuteAfterTime(2.0f));
+                IEnumerator ExecuteAfterTime(float time) 
+                {
+                yield return new WaitForSeconds(time);
+                    Debug.Log("The timer ran out");
+                    transform.position = new Vector3(-180.49f, 35.28f, 0f);
+                    Glass4.transform.position = new Vector3(-168.98f, 40f, 0.0f); //moves glass4 back on screen when respawning
+                }
+                }
+                if(slamming == true)
+                {
+                rb.linearVelocity = Vector2.zero;
+                rb.AddForce(Vector2.up * 45.0f, ForceMode2D.Impulse);
+                slamming = false;
+                Landmined = true;
+                }
+            }
             if (otherObject.gameObject.CompareTag("Glass hitbox"))
             {
                 if(slamming == false)
@@ -246,7 +272,7 @@ public bool pistoned = false;
             }
             if (otherObject.gameObject.CompareTag("1-4 end marker"))
             {
-                transform.position = new Vector3(-180.49f, 40.28f, 0f);
+                transform.position = new Vector3(-180.49f, 35.28f, 0f);
                 targetScript.GetComponent<Camera>().transform.position = new Vector3(-172.5f, 47.0f, -10.0f);
             }
             if (otherObject.gameObject.CompareTag("1-5 end marker"))

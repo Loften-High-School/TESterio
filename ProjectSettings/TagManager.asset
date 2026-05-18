@@ -26,6 +26,7 @@ TagManager:
   - landmine trigger 1-4
   - Piston Trigger
   - Piston Laser
+  - landmine trigger 1-5
   layers:
   - Default
   - TransparentFX
