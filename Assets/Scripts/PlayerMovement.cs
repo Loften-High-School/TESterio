@@ -8,17 +8,17 @@ private Rigidbody2D rb2d;
 public Rigidbody2D rb;
 public bool left = false;
 public bool right = false;
-public int jumps = 0;
-public int WallJumps =0;
-public int SJumps = 0;
-public bool slamming = false;
-public CameraScript targetScript;
-public bool Landmined = false;
-public GameObject Glass1;
+public int jumps = 0; //variable that determines how many times the player can jump
+public int WallJumps =0; //supposed to determine amount of times the player can jump off a wall but I believe it doesn't do anything at the moment
+public int SJumps = 0; //determines how many super jumps the player can do, only occurs when slamming into the floor
+public bool slamming = false; //states that the player is currently slamming
+public CameraScript targetScript; //to move the camera when the player goes to the next room
+public bool Landmined = false; //turns on when the player touches a landmine
+public GameObject Glass1; 
 public GameObject Glass2;
 public GameObject Glass3;
 public GameObject Glass4;
-public bool pistoned = false;
+public bool pistoned = false; //turns on when the player touches a piston
 /*
 
 
@@ -41,71 +41,65 @@ IF YOU HAVE ANY QUESTIONS PLEASE ASK ME
     // Update is called once per frame
     void Update()
     {
-                Vector2 moveValue = InputSystem.actions.FindAction("Move").ReadValue<Vector2>(); 
+                Vector2 moveValue = InputSystem.actions.FindAction("Move").ReadValue<Vector2>(); //moves the player when they press A, D, or the left & right arrow keys
         transform.Translate(moveValue.x * Time.deltaTime * 10.0f, 0, 0);
 
 
         if(jumps <= 1)
         {
-        if(Input.GetKeyDown(KeyCode.UpArrow))
+        if(Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) //makes the player jump when they press the up arrow or W
         {
-            slamming = false;
-            rb.linearVelocity = Vector2.zero;
-            rb.AddForce(Vector2.up * 20.0f, ForceMode2D.Impulse);
-            jumps ++;
+            slamming = false; //ensures that slamming is off when the player starts jumping
+            rb.linearVelocity = Vector2.zero; //stops all sideways momentum when player starts jumping
+            rb.AddForce(Vector2.up * 20.0f, ForceMode2D.Impulse); //pushes the player up to actually make the player "jump"
+            jumps ++; //adds 1 to the jumps variable
         }
-         if(Input.GetKeyDown(KeyCode.W))
-        {
-            slamming = false;
-            rb.linearVelocity = Vector2.zero;
-            rb.AddForce(Vector2.up * 20.0f, ForceMode2D.Impulse);
-            jumps ++;
-        }
+
 /*          if(Input.GetKeyDown(KeyCode.Space))
         {
             rb.AddForce(Vector2.up * 17.5f, ForceMode2D.Impulse);
             jumps ++;
         }
 */      }
-        if(SJumps <=0)
+        if(SJumps <=0) //if the SJumps variable is less than or equal to 0 then the following stuff will happen
         {
-             if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+             if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) //does a "Super Jump" if you press W or up arrow while SJumps is less than or equal to 0
              {
-                rb.linearVelocity = Vector2.zero;
-                pistoned = false;
-                slamming = false;
-                Landmined = false;
-                rb.AddForce(Vector2.up * 30.0f, ForceMode2D.Impulse);
-                jumps = 1;
-                SJumps = 1;
+                rb.linearVelocity = Vector2.zero; //sets sideways momentum to 0
+                pistoned = false; //sets pistoned variable to false
+                slamming = false; //sets slamming variable to false
+                Landmined = false; //sets landmined variable to false
+                rb.AddForce(Vector2.up * 30.0f, ForceMode2D.Impulse); //shoots the player into the air
+                jumps = 1; //sets jumps variable to 1
+                SJumps = 1; //sets SJumps to 1 and effectively putting it on cooldown
              }
         }
-         if(Input.GetKeyDown(KeyCode.S))
+         if(Input.GetKeyDown(KeyCode.S)) //starts slamming when the S key is press
         {
-            rb.linearVelocity = Vector2.zero;
-            rb.AddForce(Vector2.down * 30.0f, ForceMode2D.Impulse);
-            slamming = true;
-            Landmined = false;
-            pistoned = false;
+            rb.linearVelocity = Vector2.zero; //sets all sideways momentum to 0
+            rb.AddForce(Vector2.down * 30.0f, ForceMode2D.Impulse); //slams the player into the ground
+            slamming = true; //sets slamming to true
+            Landmined = false; //sets landmined to false
+            pistoned = false; //sets pistoned to false
         }
-         if(Input.GetKeyDown(KeyCode.DownArrow))
+         if(Input.GetKeyDown(KeyCode.DownArrow)) //starts slamming when the down arrow is pressed (I don't know why there's two different slamming script things but I'll fix it when my Unity editor isn't screwed up)
         {
-            rb.linearVelocity = Vector2.zero;
-            rb.AddForce(Vector2.down * 40.0f, ForceMode2D.Impulse);
-            slamming = true;
-            Landmined = false;
-            pistoned = false;
+            rb.linearVelocity = Vector2.zero; //sets sideways momentum to 0
+            rb.AddForce(Vector2.down * 40.0f, ForceMode2D.Impulse); //slams the player into the ground
+            slamming = true; //sets slamming to true
+            Landmined = false; //sets landmined to false
+            pistoned = false; //sets pistoned to false
         }
-        if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+        if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) //old and obsolete script that attempted to add dashing into the game
         {
-            left = true;
-            right = false;
-            pistoned = false;
+            left = true; //would set the left variable to true
+            right = false; //would set the right variable to false
+            pistoned = false; //sets pistoned to false
         }
-        if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+        if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) //old and obsolete script that attempted to add dashing into the game
         {
-            left = false;
-            right = true;
+            left = false; //would set left to false
+            right = true; //would set right to true
         }
 /*         if(Input.GetKeyDown(KeyCode.Q) && left == true && right == false)
         {
@@ -240,6 +234,13 @@ IF YOU HAVE ANY QUESTIONS PLEASE ASK ME
                 Debug.Log("Get Piston-ed nerd");
                 rb.linearVelocity = Vector2.zero;
                 rb.AddForce(Vector2.right * 25.0f, ForceMode2D.Impulse);
+                pistoned = true;
+            }
+            if(otherObject.gameObject.CompareTag("Piston TriggerR"))
+            {
+                Debug.Log("Get Piston-ed nerd");
+                rb.linearVelocity = Vector2.zero;
+                rb.AddForce(Vector2.right * -100.0f, ForceMode2D.Impulse);
                 pistoned = true;
             }
         }

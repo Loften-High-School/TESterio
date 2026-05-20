@@ -20,13 +20,13 @@ public class PistonRscript : MonoBehaviour
     {
         if(otherObject.gameObject.CompareTag("Player"))
         {
-            rb.AddForce(Vector2.right * 1400.0f, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.right * -1400.0f, ForceMode2D.Impulse);
             StartCoroutine(ExecuteAfterTime(0.5f));
                 IEnumerator ExecuteAfterTime(float time) 
                 {
                 yield return new WaitForSeconds(time);
                 rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
-                rb.linearVelocity = new Vector2(-1, rb.linearVelocity.y);
+                rb.linearVelocity = new Vector2(1, rb.linearVelocity.y);
                 laser1.transform.position += new Vector3(110.96831f, 16.11741f, 0f);
                 laser2.transform.position += new Vector3(111.26131f, 16.11741f, 0f);
                 laser3.transform.position += new Vector3(111.5872f, 16.11741f, 0f);
