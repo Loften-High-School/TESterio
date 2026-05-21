@@ -18,6 +18,10 @@ public GameObject Glass1;
 public GameObject Glass2;
 public GameObject Glass3;
 public GameObject Glass4;
+public GameObject Glass5;
+public GameObject Glass6;
+public GameObject Glass7;
+public GameObject Glass8;
 public bool pistoned = false; //turns on when the player touches a piston
 /*
 
@@ -160,7 +164,12 @@ IF YOU HAVE ANY QUESTIONS PLEASE ASK ME
                 {
                 rb.linearVelocity = Vector2.zero;
                 rb.AddForce(Vector2.up * 40.0f, ForceMode2D.Impulse);
+                StartCoroutine(ExecuteAfterTime(0.25f));
+                IEnumerator ExecuteAfterTime(float time) 
+                {
+                yield return new WaitForSeconds(time);
                 slamming = false;
+                }
                 Landmined = true;
                 }
             }
@@ -187,7 +196,12 @@ IF YOU HAVE ANY QUESTIONS PLEASE ASK ME
                 {
                 rb.linearVelocity = Vector2.zero;
                 rb.AddForce(Vector2.up * 45.0f, ForceMode2D.Impulse);
+                StartCoroutine(ExecuteAfterTime(0.25f));
+                IEnumerator ExecuteAfterTime(float time) 
+                {
+                yield return new WaitForSeconds(time);
                 slamming = false;
+                }
                 Landmined = true;
                 }
             }
@@ -206,13 +220,22 @@ IF YOU HAVE ANY QUESTIONS PLEASE ASK ME
                     Debug.Log("The timer ran out");
                     transform.position = new Vector3(-180.49f, 35.28f, 0f);
                     Glass4.transform.position = new Vector3(-168.98f, 40f, 0.0f); //moves glass4 back on screen when respawning
+                    Glass5.transform.position = new Vector3(-178.9413f, 46.4322f, 0.0f); //moves glass5 back on screen when respawning
+                    Glass6.transform.position = new Vector3(-177.78f, 36.67f, 0.0f); //moves glass6 back on screen when respawning
+                    Glass7.transform.position = new Vector3(-173.76f, 43.33f, 0.0f); //moves glass7 back on screen when respawning
+                    Glass8.transform.position = new Vector3(-175.16f, 49.75f, 0.0f); //moves glass8 back on screen when respawning
                 }
                 }
                 if(slamming == true)
                 {
                 rb.linearVelocity = Vector2.zero;
                 rb.AddForce(Vector2.up * 45.0f, ForceMode2D.Impulse);
+                StartCoroutine(ExecuteAfterTime(0.25f));
+                IEnumerator ExecuteAfterTime(float time) 
+                {
+                yield return new WaitForSeconds(time);
                 slamming = false;
+                }
                 Landmined = true;
                 }
             }
@@ -233,7 +256,7 @@ IF YOU HAVE ANY QUESTIONS PLEASE ASK ME
             {
                 Debug.Log("Get Piston-ed nerd");
                 rb.linearVelocity = Vector2.zero;
-                rb.AddForce(Vector2.right * 25.0f, ForceMode2D.Impulse);
+                rb.AddForce(Vector2.right * 100.0f, ForceMode2D.Impulse);
                 pistoned = true;
             }
             if(otherObject.gameObject.CompareTag("Piston TriggerR"))
