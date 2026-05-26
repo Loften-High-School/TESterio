@@ -220,7 +220,7 @@ IF YOU HAVE ANY QUESTIONS PLEASE ASK ME
                     Debug.Log("The timer ran out");
                     transform.position = new Vector3(-180.49f, 35.28f, 0f);
                     Glass4.transform.position = new Vector3(-168.98f, 40f, 0.0f); //moves glass4 back on screen when respawning
-                    Glass5.transform.position = new Vector3(-178.9413f, 46.4322f, 0.0f); //moves glass5 back on screen when respawning
+                    Glass5.transform.position = new Vector3(-178.9413f, 46.7322f, 0.0f); //moves glass5 back on screen when respawning
                     Glass6.transform.position = new Vector3(-177.78f, 36.67f, 0.0f); //moves glass6 back on screen when respawning
                     Glass7.transform.position = new Vector3(-173.76f, 43.33f, 0.0f); //moves glass7 back on screen when respawning
                     Glass8.transform.position = new Vector3(-175.16f, 49.75f, 0.0f); //moves glass8 back on screen when respawning
@@ -266,6 +266,23 @@ IF YOU HAVE ANY QUESTIONS PLEASE ASK ME
                 rb.AddForce(Vector2.right * -100.0f, ForceMode2D.Impulse);
                 pistoned = true;
             }
+            if(otherObject.gameObject.CompareTag("Plasma Death Trigger"));
+            {
+/*                transform.position = new Vector3(-1800.49f, 10.28f, 0f);
+                targetScript.GetComponent<Camera>().transform.position = new Vector3(-172.5f, 47.0f, -10.0f);
+                StartCoroutine(ExecuteAfterTime(2.0f));
+                IEnumerator ExecuteAfterTime(float time) 
+                {
+                yield return new WaitForSeconds(time);
+                    Debug.Log("The timer ran out");
+                    transform.position = new Vector3(-180.49f, 35.28f, 0f);
+                    Glass4.transform.position = new Vector3(-168.98f, 40f, 0.0f); //moves glass4 back on screen when respawning
+                    Glass5.transform.position = new Vector3(-178.9413f, 46.7322f, 0.0f); //moves glass5 back on screen when respawning
+                    Glass6.transform.position = new Vector3(-177.78f, 36.67f, 0.0f); //moves glass6 back on screen when respawning
+                    Glass7.transform.position = new Vector3(-173.76f, 43.33f, 0.0f); //moves glass7 back on screen when respawning
+                    Glass8.transform.position = new Vector3(-175.16f, 49.75f, 0.0f); //moves glass8 back on screen when respawning
+                }
+*/            }
         }
     void OnTriggerExit2D(Collider2D otherObject)
     {

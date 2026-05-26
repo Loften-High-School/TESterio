@@ -28,6 +28,8 @@ TagManager:
   - Piston Laser
   - landmine trigger 1-5
   - Piston TriggerR
+  - PlasmaTrapTrigger
+  - Plasma Death Trigger
   layers:
   - Default
   - TransparentFX
