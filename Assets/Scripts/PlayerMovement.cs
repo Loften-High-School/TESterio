@@ -22,6 +22,7 @@ public GameObject Glass5;
 public GameObject Glass6;
 public GameObject Glass7;
 public GameObject Glass8;
+[SerializeField] ParticleSystem PlasmaDeathParticles;
 public bool pistoned = false; //turns on when the player touches a piston
 /*
 
@@ -266,9 +267,11 @@ IF YOU HAVE ANY QUESTIONS PLEASE ASK ME
                 rb.AddForce(Vector2.right * -100.0f, ForceMode2D.Impulse);
                 pistoned = true;
             }
-            if(otherObject.gameObject.CompareTag("Plasma Death Trigger"));
+            if(otherObject.gameObject.CompareTag("Plasma Death Trigger"))
             {
-/*                transform.position = new Vector3(-1800.49f, 10.28f, 0f);
+                Debug.Log("Plasma cannon-ed");
+                PlasmaDeathParticles.Play();
+                transform.position = new Vector3(-1800.49f, 10.28f, 0f);
                 targetScript.GetComponent<Camera>().transform.position = new Vector3(-172.5f, 47.0f, -10.0f);
                 StartCoroutine(ExecuteAfterTime(2.0f));
                 IEnumerator ExecuteAfterTime(float time) 
@@ -282,7 +285,7 @@ IF YOU HAVE ANY QUESTIONS PLEASE ASK ME
                     Glass7.transform.position = new Vector3(-173.76f, 43.33f, 0.0f); //moves glass7 back on screen when respawning
                     Glass8.transform.position = new Vector3(-175.16f, 49.75f, 0.0f); //moves glass8 back on screen when respawning
                 }
-*/            }
+            }
         }
     void OnTriggerExit2D(Collider2D otherObject)
     {

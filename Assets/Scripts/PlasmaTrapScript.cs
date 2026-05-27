@@ -5,8 +5,12 @@ public class PlasmaTrapScript : MonoBehaviour
 {
     private PlayerMovement playerMovement;
     
-    [SerializeField] ParticleSystem particleSystemTop;
-    [SerializeField] ParticleSystem particleSystemBottom;
+    [SerializeField] ParticleSystem particleSystemTop1;
+    [SerializeField] ParticleSystem particleSystemTop2;
+    [SerializeField] ParticleSystem particleSystemTop3;
+    [SerializeField] ParticleSystem particleSystemBottom1;
+    [SerializeField] ParticleSystem particleSystemBottom2;
+    [SerializeField] ParticleSystem particleSystemBottom3;
     [SerializeField] ParticleSystem particleSystemSecTop;
     [SerializeField] ParticleSystem particleSystemSecBottom;
     public bool CannonActive = false;
@@ -36,9 +40,13 @@ public class PlasmaTrapScript : MonoBehaviour
                 HitboxOfDeath.transform.position = new Vector3(-164.9606f, 49.7798f, 0.0f);
                 CannonActive = true;
                 Debug.Log("Get Plasma Cannon-ed bozo");
-            particleSystemTop.Play();
-            particleSystemBottom.Play();
-                StartCoroutine(ExecuteAfterTime(1.25f));
+            particleSystemTop1.Play();
+            particleSystemTop2.Play();
+            particleSystemTop3.Play();
+            particleSystemBottom1.Play();
+            particleSystemBottom2.Play();
+            particleSystemBottom3.Play();
+                StartCoroutine(ExecuteAfterTime(1.75f));
                 IEnumerator ExecuteAfterTime(float time) 
                 {
                 yield return new WaitForSeconds(time);
