@@ -64,6 +64,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BackGround
+    uniqueID: 2210575669
+    locked: 0
   - name: behind collision stuff
     uniqueID: 744413509
     locked: 0
@@ -87,6 +90,9 @@ TagManager:
     locked: 0
   - name: above everything(not UI)
     uniqueID: 1182450521
+    locked: 0
+  - name: plasma death animation
+    uniqueID: 1050704761
     locked: 0
   m_RenderingLayers:
   - Default
