@@ -24,6 +24,7 @@ public GameObject Glass7;
 public GameObject Glass8;
 [SerializeField] ParticleSystem PlasmaDeathParticles;
 public bool pistoned = false; //turns on when the player touches a piston
+public bool SlamCD = false;
 /*
 
 
@@ -79,21 +80,35 @@ IF YOU HAVE ANY QUESTIONS PLEASE ASK ME
                 SJumps = 1; //sets SJumps to 1 and effectively putting it on cooldown
              }
         }
-         if(Input.GetKeyDown(KeyCode.S)) //starts slamming when the S key is press
+         if(Input.GetKeyDown(KeyCode.S) && SlamCD == false) //starts slamming when the S key is press
         {
             rb.linearVelocity = Vector2.zero; //sets all sideways momentum to 0
             rb.AddForce(Vector2.down * 30.0f, ForceMode2D.Impulse); //slams the player into the ground
             slamming = true; //sets slamming to true
             Landmined = false; //sets landmined to false
             pistoned = false; //sets pistoned to false
+            SlamCD = true;
+            StartCoroutine(ExecuteAfterTime(0.5f));
+                IEnumerator ExecuteAfterTime(float time) 
+                {
+                yield return new WaitForSeconds(time);
+                SlamCD = false;
+                }
         }
-         if(Input.GetKeyDown(KeyCode.DownArrow)) //starts slamming when the down arrow is pressed (I don't know why there's two different slamming script things but I'll fix it when my Unity editor isn't screwed up)
+         if(Input.GetKeyDown(KeyCode.DownArrow) && SlamCD == false) //starts slamming when the down arrow is pressed (I don't know why there's two different slamming script things but I'll fix it when my Unity editor isn't screwed up)
         {
             rb.linearVelocity = Vector2.zero; //sets sideways momentum to 0
-            rb.AddForce(Vector2.down * 40.0f, ForceMode2D.Impulse); //slams the player into the ground
+            rb.AddForce(Vector2.down * 30.0f, ForceMode2D.Impulse); //slams the player into the ground
             slamming = true; //sets slamming to true
             Landmined = false; //sets landmined to false
             pistoned = false; //sets pistoned to false
+            SlamCD = true;
+            StartCoroutine(ExecuteAfterTime(0.5f));
+                IEnumerator ExecuteAfterTime(float time) 
+                {
+                yield return new WaitForSeconds(time);
+                SlamCD = false;
+                }
         }
         if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) //old and obsolete script that attempted to add dashing into the game
         {

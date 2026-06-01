@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.InputSystem
 public class CharacterDash : MonoBehaviour
 {
     // Public variables to adjust the dash behavior in the Unity Inspector
@@ -12,7 +12,13 @@ public class CharacterDash : MonoBehaviour
     private float dashTime;
     private float lastDashTime;
     private bool isDashing = false;
+/*    private bool Down = false;
 
+if(Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+{
+Down = true
+}
+*/
     // The direction of the dash
     private Vector2 dashDirection;
 
