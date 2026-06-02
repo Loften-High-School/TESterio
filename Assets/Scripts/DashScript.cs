@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.InputSystem
+using UnityEngine.InputSystem;
 public class CharacterDash : MonoBehaviour
 {
     // Public variables to adjust the dash behavior in the Unity Inspector
